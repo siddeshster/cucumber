@@ -16,7 +16,7 @@ public class StepDefinition {
 
     WebDriver driver;
 
-    LoginPage loginPage = new LoginPage(driver);
+    LoginPage loginPage;
 
     @Given("^User Launch Browser$")
     public void user_Launch_Browser() throws Exception {
@@ -32,6 +32,7 @@ public class StepDefinition {
 
     @When("^user enters EmailID as (.*) and Password as (.*)$")
     public void user_enters_EmailID_as_and_Password_as(String tab_email, String tab_password) throws Exception {
+        loginPage = new LoginPage(driver);
         loginPage.setTxtEmail(tab_email);
         loginPage.setTxtPassword(tab_password);
     }
